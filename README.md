@@ -58,6 +58,10 @@ Execute Simulation → Netlist and Run to generate the simulation netlist and st
 7. Transient Analysis Settings (if applicable):
 If performing Transient Analysis, configure the stop time and time step for the simulation.
 Observe the stability of the reference voltage (Vref) across time, ensuring minimal fluctuation under varying condition
+![image](https://github.com/user-attachments/assets/274d9721-b7df-494d-a644-60fa9acaff42)
+![image](https://github.com/user-attachments/assets/2f583de9-cf0d-4059-9388-9fd10933bddd)
+
+
 
 Results:
 The design and implementation of the Bandgap Reference Voltage circuit using Cadence EDA tools were successfully completed.
