@@ -1,98 +1,64 @@
-# Design-a-Calculator-using-Cadence-Tools
-Ex No: 07     Design & Implementation of Calculator Using Cadence EDA Tools   
-
-Aim:
-To design and implement a basic calculator circuit using Cadence EDA tools that performs arithmetic operations such as addition, subtraction, multiplication, and division, and to analyze its functionality.
-
+#Design & Implementation of Bandgap Reference Voltage Circuit Using Cadence EDA Tools
+Design & Implementation of Bandgap Reference Voltage Circuit Using Cadence EDA Tools
+Aim: To design and implement a Bandgap Reference Voltage Circuit using Cadence EDA tools and to verify its behavior across temperature and voltage variations.
 Tools Required:
-•	Personal Computer
-•	Cadence Virtuoso Software
+Personal Computer
+Cadence Virtuoso Software
+1. Initial Setup:
+Now, two windows should open:
+1.Virtuoso/Command Interpreter Window (CIW)
+2.“What’s New…” window (close this window).
+Use the Virtuoso CIW window for all further processing.
+2. Create a New Library:
+Go to File → New → Library.
+Name your library (e.g., Bandgap_Reference_Voltage).
+Enable Attach to an existing technology library, and click OK.
+Attach the library to the technology library (e.g., gpdk045) and click OK.
+3. Create Schematic Cell View:
+In the Virtuoso CIW window, go to File → New → Cellview.
+Set up the new file form:
+oLibrary: Select the one you created (e.g., Bandgap_Reference_Voltage).
+oCell: Name the cell (e.g., Bandgap_Reference).
+oView: Select Schematic.
+oPress OK.
+Add the required components (transistors, resistors, current mirrors) from the libraries.
+To add components:
+oGo to Instance Fixed menu or press I on the keyboard to bring up the instance browser.
+oSelect the appropriate library (e.g., gpdk045 for MOSFETs or other components like resistors).
+Make the necessary connections using the Fixed Narrow Wire tool.
+Create Input and Output pins (e.g., Vin, Vref for the reference voltage).
+After connecting all components, click Check and Save.
+4. Creating the Symbol for the Schematic Cell View:
+In the schematic window, execute Create → Cell view → From Cell view.
+The From Cellview window appears. Ensure the Lib Name, Cell Name, and From View are correct.
+Press OK.
+The Symbol Generation Form appears. Click OK if no changes are required
+A default symbol for your Bandgap Reference circuit will be created.
+You can edit the symbol shape if desired by using Create → Shape → Choose.
+Execute Create → Cellview → From Cellview to generate the symbol and ensure it matches the schematic. Press OK.
+Check the position of the pins, and then press OK to finalize.
+5. Create the New Test Cell View:
+In the CIW window, execute File → New → Cellview.
+Set up the new test cell:
+oLibrary: Select the library you created (e.g., Bandgap_Reference_Voltage).
+oCell: Name the test cell (e.g., Bandgap_Reference_Test).
+oView: Select Schematic.
+oPress OK
+In the test schematic, connect the necessary input and output pins and components, including the test bench for the reference voltage.
+Ensure the circuit is connected properly for simulation.
+6. Analog Simulation Using Spectre:
+In the Test Cell View window, go to Launch → ADEL (Analog Design Environment).
+Execute Setup → Simulation/Directory/Host to set the simulation directory and host.
+In the Simulation Setup window, choose Spectre as the simulator and click OK.
+Execute Analysis → Choose and select the type of analysis (e.g., DC, Transient, or AC).
+oSet the specifications for the analysis and press OK.
+Execute Outputs → To be Plotted to choose which signals to observe.
+oSelect the input wire (e.g., Vin) and output wire (e.g., Vref) for the reference voltage.
+Execute Simulation → Netlist and Run to generate the simulation netlist and start the simulation.
+7. Transient Analysis Settings (if applicable):
+If performing Transient Analysis, configure the stop time and time step for the simulation.
+Observe the stability of the reference voltage (Vref) across time, ensuring minimal fluctuation under varying condition
 
-S C H E M A T I C S I M U L A T I O N - PROCEDURE FOR CREATING THE SCHEMATIC SIMULATION -Commands to get into Cadence
-
-1.	Right Click and open the terminal window
-2.	Type the following commands as follows and press enter.
-•	csh
-•	source /cadence/install/cshrc
-•	virtuoso 
-Procedure for Schematic simulation using Cadence
-
-1.	Now two windows must open i) virtuoso/command interpreter window ii)”Whats New…”
-2.	Close the 2nd window
-3.	Use 1st window i.e virtuoso window (CIW) for further processing.
-i.	Create a New Library
-ii.	Create Schematic Cell view.
-iii.	Create the Symbol for schematic Cell view.
-iv.	Create the test Cell view.
-v.	Analog simulation by spectre
-
-
-i)	Procedure for Creating New Library.
-•	File –New – Library
-•	Name: Give name for ur library Ex: VLSILAB_EXP_1
-•	Enable Attach to an existing technology library, Click OK
-•	Attach the library to the technology library gpdk045.Click OK
-ii)	Create Schematic Cell view.
-•	Go to 1st window i.e virtuoso (CIW)
-•	File-New-Cell view
-•	Setup the new file form
-	Library: Select the one you created.
-	Cell: Give the experiment name Ex: Inverter ViewSchematic
-	Type: Schematic press OK
-•	Add the required components from the libraries and make the connections.
-	Go to instance fixed menu or use shortcut key “I” from keypad to go instances
-	Click on browse. This opens the library browser
-	Now select the appropriate library for components like 
-	Gpdk45 ------------------------nmos1v, pmos1v
-	Create Input and Output pins
-	Make the connections by using fixed narrow wire key
-	Click Check and Save button
-
-
-
- 
-iii)	Creating the Symbol for schematic Cell view
-
-•	In the schematic window, execute 
-	Create – Cell view – From Cell view
-	The cell view from cell view window appears
-	Check Lib Name, Cell Name, From View name must be schematic Press ok
-•	Now Symbol generation form appears. Click Ok If No changes required
-•	A new window with with default symbol is created.
-•	Edit the symbol if you want to give actual symbol shape else continue.
-•	Execute Create-Cell view-from cell view
-•	Library Name and Cell Name must be same which you have used for schematic. Press OK
-•	Check for the position of pin side.Prss OK
-•	Edit for the shape by Create-Shape-Choose required options to edit.
-
- 
-
-
-iv)	Creating the new test cell view
-
-•	Go to CIW window, Execute File-New-Cell view
-	Setup the new file form
-	Library: Select the one you created.
-	Cell: Cell name must be different from the name used in schematic cell view. Ex: Inverter_test
-	View: Schematic
-	Type: Schematic press OK
-•	Follow the step 3(ii) d to make the required connections
-
- 
-Analog simulation by SPECTRE.
-•	In test cell view window
-•	Launch – ADE L(Analog Design Environment)
-	Execute Setup—Simulation/directory/Host A new window opens
-	Set the simulation window to spectre and click ok
-	Execute Analysis – Choose. A window opens.
-	Select the type and set the specifications and press OK
-	Execute Output s—to be plotted – Select on Schematic
-	Then Select the INPUT WIRE(Vin ) and OUTPUT WIRE(Vout) from your test Schematic using mouse
-•	Execute Simulation -- Net list and Run
-
-
-For Transient Analysis Settings and Output
- 
-  
 Results:
-The design and implementation of a basic calculator using Cadence EDA tools were successfully completed. The calculator was able to perform addition, subtraction, multiplication, and division operations accurately.
+The design and implementation of the Bandgap Reference Voltage circuit using Cadence EDA tools were successfully completed.
+The simulation results verified that the circuit provided a stable reference voltage (Vref), confirming the correct operation of the Bandgap reference circuit across different temperature and supply voltage variations. The reference voltage output remained stable and close to the expected value (typically 1.2V).
